@@ -59,7 +59,8 @@ fn optimal_size_above(n: usize) -> usize {
                 if h == &x2 {
                     i += 1;
                     x2 = 2 * history[i];
-                } else if h == &x3 {
+                }
+                if h == &x3 {
                     j += 1;
                     x3 = 3 * history[j];
                 }
@@ -112,8 +113,8 @@ mod tests {
 
     #[test]
     fn expected_optimal_sizes() {
-        let ns = vec![0, 1, 2, 3, 4, 5, 6, 7, 13];
-        let exp = vec![1, 1, 2, 3, 4, 6, 6, 8, 16];
+        let ns = vec![0, 1, 2, 3, 4, 5, 6, 7, 13, 17];
+        let exp = vec![1, 1, 2, 3, 4, 6, 6, 8, 16, 18];
         for (n, e) in ns.iter().zip(&exp) {
             assert_eq!(*e, optimal_size_above(*n));
         }
